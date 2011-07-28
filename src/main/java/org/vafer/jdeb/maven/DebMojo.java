@@ -204,6 +204,8 @@ public class DebMojo extends AbstractPluginMojo {
     }
 
     protected VariableResolver initializeVariableResolver(Map variables) {
+        String buildNumber = getProject().getProperties().getProperty("buildNumber");
+        variables.put("buildNumber", buildNumber);
         variables.put("name", getProject().getName());
         variables.put("artifactId", getProject().getArtifactId());
         variables.put("groupId", getProject().getGroupId());
